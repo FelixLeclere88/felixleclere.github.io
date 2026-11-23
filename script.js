@@ -24,8 +24,6 @@
     hero.innerHTML = `<img class="project-cover" src="${project.image}" alt="${pick(project.imageAlt)}"><div class="project-hero-copy"><p class="eyebrow">${t("projectLabel")}</p><h1>${pick(project.title)}</h1><p class="project-subtitle">${pick(project.subtitle)}</p><p class="project-description">${pick(project.description)}</p></div>`;
     const groups = root.querySelector(".project-groups");
     groups.innerHTML = `<h2>${t("features")}</h2>` + project.groups.map(group => `<section class="feature-group"><h3>${pick(group.title)}</h3><div class="feature-grid">${group.features.map(feature => `<article class="feature-card" id="${feature.id}"><div class="video-wrap"><video controls preload="metadata" playsinline aria-label="${pick(feature.title)}"><source src="${feature.video}" type="video/mp4">Your browser does not support embedded MP4 video.</video></div><div class="feature-copy"><h4>${pick(feature.title)}</h4><p>${pick(feature.description)}</p></div></article>`).join("")}</div></section>`).join("");
-    root.querySelector(".project-intro-label").textContent = t("projectIntro");
-    root.querySelector(".placeholder-note").textContent = t("placeholderNote");
   }
   document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll("[data-lang-choice]").forEach(el => el.addEventListener("click", () => setLanguage(el.dataset.langChoice)));
